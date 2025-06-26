@@ -4,13 +4,14 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { Text } from "react-native";
 
 import StackNavigator from "./StackNavigator";
-import Details from "../screens/Details";
+import Setting from "../screens/Setting";
 
 const Tabs = createBottomTabNavigator();
 export const PATHS = {
   HOME: "Tasks",
   ADD_TODO: "Add You Task ",
   Details: "Details",
+  Setting: "Setting",
 };
 const Router = () => {
   return (
@@ -25,7 +26,7 @@ const Router = () => {
             tabBarLabel: ({ focused, color }) => (
               <Text
                 style={{
-                  color: focused ? "red" : "gray",
+                  color: focused ? null : "white",
                   display: focused ? "none" : "flex",
                   fontSize: 12,
                   lineHeight: 12,
@@ -40,13 +41,40 @@ const Router = () => {
                 <AntDesign
                   name="home"
                   size={24}
-                  color={focused ? "white" : color}
+                  color={focused ? "#0096FF" : "white"}
                 />
               );
             },
           }}
         />
-        <Tabs.Screen name={PATHS.Details} component={Details} />
+        <Tabs.Screen
+          name={PATHS.Setting}
+          component={Setting}
+          options={{
+            tabBarIcon: ({ focused, color }) => {
+              return (
+                <AntDesign
+                  name="setting"
+                  size={24}
+                  color={focused ? "#0096FF" : "white"}
+                />
+              );
+            },
+            tabBarLabel: ({ focused, color }) => (
+              <Text
+                style={{
+                  color: focused ? null : "white",
+                  display: focused ? "none" : "flex",
+                  fontSize: 12,
+                  lineHeight: 12,
+                }}
+              >
+                Setting
+              </Text>
+            ),
+            headerShown: false,
+          }}
+        />
       </Tabs.Navigator>
     </NavigationContainer>
   );

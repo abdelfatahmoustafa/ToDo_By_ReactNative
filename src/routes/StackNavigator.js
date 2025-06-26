@@ -2,7 +2,8 @@ import AddItems from "../screens/AddItems";
 import Details from "../screens/Details";
 import HomePage from "../screens/HomePage";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { PATHS } from "./Router";
+import { PATHS } from "../constants/paths";
+import ExampleUsage from "../screens/SearchHeader";
 
 const Stack = createNativeStackNavigator();
 const StackNavigator = () => {
@@ -20,7 +21,7 @@ const StackNavigator = () => {
         options={{
           headerShown: true,
           headerTitleAlign: "left",
-          headerTitle: "Tasks",
+          headerTitle: ExampleUsage,
 
           headerTitleStyle: {
             fontSize: 18,
